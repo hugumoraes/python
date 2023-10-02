@@ -27,6 +27,12 @@ dictionary = { "Hugo": 123 }
 dictionary['Hugo']
 dictionary['New Entry'] = 456
 
+# Arrays
+array = [1, 2, 3, 4, 5]
+
+# Tuples
+tuple = (1, 2, 3, 4, 5)
+
 
 # Useful functions
 len() # Gives the length of a string
