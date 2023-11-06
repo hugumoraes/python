@@ -1,3 +1,9 @@
+# -------------- Imports -------------- #
+import pandas
+import random
+
+# -------------- Imports -------------- #
+
 # Variables
 name = "Hugo"
 something_is_true = True
@@ -63,3 +69,76 @@ class Dog(Animal):
 
     def make_sound(self):
         print("Woof")
+    
+# -------------- Files -------------- #
+# Read = r
+# Write = w
+# Append = a
+# Read and Write = r+
+
+# Open
+file = open("<file>.<ext>")
+# Read
+contents = file.read()
+# Close
+file.close()
+# Write
+file.write("<text>")
+
+# Using with
+with open("<file>.<ext>") as file:
+    contents = file.read()
+
+with open("<file>.<ext>", mode="a") as file:
+    file.write("<text>")
+
+# -------------- Files -------------- #
+
+# -------------- Pandas (CSV) -------------- #
+data = pandas.read_csv('<path>.csv')
+
+# Get Data in Columns
+data['temp']
+
+# Get Data in Rows
+data[data.day == 'Monday']
+
+# Create a dataframe from scratch
+data_dict = {
+    'students': ['Amy', 'James', 'Angela'],
+    'scores': [76, 56, 65]
+}
+
+dataframe = pandas.DataFrame(data_dict)
+dataframe.to_csv('<path>.csv')
+
+### How to iterate over a Pandas dataframe
+student_dict = {
+    'student': ['Amy', 'James', 'Angela'],
+    'score': [76, 56, 65]
+
+}
+
+student_data_frame = pandas.DataFrame(student_dict)
+
+for (index, row) in student_data_frame.iterrows():
+    if row.student == 'Angela':
+        print(row.score)
+
+# -------------- Pandas (CSV) -------------- #
+
+# -------------- List Comprehension -------------- #
+### List Comprehension
+numbers = [1, 2, 3]
+new_list = [n + 1 for n in numbers] # [2, 3, 4]
+
+### Conditional List Comprehension
+names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
+short_names = [name for name in names if len(name) < 5] # ["Alex", "Beth", "Dave"]
+
+### Dictionary Comprehension
+names = ["Alex", "Beth", "Caroline", "Dave", "Eleanor", "Freddie"]
+students_scores = {student: random.randint(1, 100) for student in names} 
+passed_students = {student: score for (student, score) in students_scores.items() if score >= 60} 
+
+# -------------- List Comprehension -------------- #
