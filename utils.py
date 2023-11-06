@@ -1,6 +1,7 @@
 # -------------- Imports -------------- #
 import pandas
 import random
+import tkinter
 
 # -------------- Imports -------------- #
 
@@ -24,10 +25,27 @@ for value in values: # writes a for block
 while something_is_true: # writes a while loop
     pass
 
-### Functions
+# -------------- Functions -------------- #
+### Functions declaration
 def my_function(parameter_one, parameter_two): # declares a function
     """This is a new function""" ## Docstring
     pass
+
+### Keyword Arguments
+def my_function(parameter_one=1, parameter_two=2):
+    pass
+
+### Unlimited Arguments
+def my_function(*args):
+    for n in args:
+        pass
+
+### Many Keyword Arguments
+def my_function(**kwargs):
+    for key, value in kwargs.items():
+        pass
+
+# -------------- Functions -------------- #
 
 # Dictionary
 dictionary = { "Hugo": 123 }
@@ -54,7 +72,10 @@ round() # Rounds integer or float
 input() # gets input from the user on terminal
 print(f"") # prints to the terminal
 
-# Classes
+
+
+# -------------- Classes -------------- #
+### Classes
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -62,14 +83,24 @@ class Animal:
     def make_sound(self):
         print("Grrr")
 
-# Sub classes
+### Sub classes
 class Dog(Animal):
     def __init__(self, name):
         super().__init__(name)
 
     def make_sound(self):
         print("Woof")
+
+### Classes with **kw
+class Car:
+    def __init__(self, **kw):
+        self.make = kw.get("make")
+        self.model = kw.get("model")
     
+# -------------- Classes -------------- #
+
+
+
 # -------------- Files -------------- #
 # Read = r
 # Write = w
@@ -94,6 +125,8 @@ with open("<file>.<ext>", mode="a") as file:
 
 # -------------- Files -------------- #
 
+
+
 # -------------- Pandas (CSV) -------------- #
 data = pandas.read_csv('<path>.csv')
 
@@ -116,7 +149,6 @@ dataframe.to_csv('<path>.csv')
 student_dict = {
     'student': ['Amy', 'James', 'Angela'],
     'score': [76, 56, 65]
-
 }
 
 student_data_frame = pandas.DataFrame(student_dict)
@@ -126,6 +158,8 @@ for (index, row) in student_data_frame.iterrows():
         print(row.score)
 
 # -------------- Pandas (CSV) -------------- #
+
+
 
 # -------------- List Comprehension -------------- #
 ### List Comprehension
@@ -142,3 +176,11 @@ students_scores = {student: random.randint(1, 100) for student in names}
 passed_students = {student: score for (student, score) in students_scores.items() if score >= 60} 
 
 # -------------- List Comprehension -------------- #
+
+
+
+# -------------- Tkinter -------------- #
+
+
+
+# -------------- Tkinter -------------- #
